@@ -57,9 +57,9 @@ function displayBooksAsCards() {
   container.style.gap = "2rem";
 
 // To loop through each book stored in the myLibrary array
-  myLibrary.forEach(book => {
+  myLibrary.forEach(book => {  // loop through each book object
     const card = document.createElement("div"); //Create a div container
-    card.style.border = "1px solid #ccc";
+    card.style.border = "1px solid #ccc"; 
     card.style.borderRadius = "8px";
     card.style.padding = "1rem";
     card.style.width = "200px";
@@ -77,5 +77,15 @@ function displayBooksAsCards() {
   });
 }
 
-// To get the books display, we call
+// To get the books displayed, we call
 displayBooksAsCards();
+
+
+// TO GET A FORM WHEN THE "NEW BOOK" button is clicked
+const displayFormBtn = document.querySelector(".displayFormBtn"); 
+const bookForm = document.getElementById("bookForm"); 
+
+// Add event listener to the New Book button
+displayFormBtn.addEventListener("click", () => {
+  bookForm.style.display = bookForm.style.display === "none" ? "block" : "none";
+});
