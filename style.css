@@ -58,3 +58,18 @@ select {
 input::placeholder {
     text-align: center;
 }
+
+input {
+    padding-left: 3px;
+    color: white;
+}
+
+input, 
+select {
+    border:  1px solid white ;
+    background-color: black;
+    color: white;
+    height: 30px;
+}
+
+

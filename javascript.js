@@ -113,10 +113,9 @@ bookForm.addEventListener("submit", function (e) {
   const newBook = new Book(title, author, pages, readingStatus);
   myLibrary.push(newBook);
 
-  // Optional: reset form and hide it again
+  // Reset form and hide it again
   bookForm.reset();
   bookForm.style.display = "none";
 
-  // Optional: update display
-  displayBooksAsCards(); // <-- only if you already have this function
+  displayBooksAsCards(); 
 });
