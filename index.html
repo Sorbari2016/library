@@ -9,8 +9,32 @@
 </head>
 <body>
     <h1>De Nwiibee's Library</h1>
+    <div class="envelope">
+
+        <!-- Button to click in order the get form for a new book -->
+         <div class="sidebar">
+            <button class="displayFormBtn">New Book</button>
+        </div>
+
+        <!-- Book form -->
+        <form id="bookForm" style="display: none;">
+            <input type="text" id="title" placeholder="Book title" required>
+            <input type="text" id="author" placeholder="Book author" required>
+            <input type="number" id="pages" placeholder="Number of Pages" required>
+            
+            <select id="readingStatus" required>
+              <option value="">-- Select Reading Status --</option>
+              <option value="true">Already Read</option>
+              <option value="false">Not Read Yet</option>
+              <option value="reading">Currently Reading</option>
+            </select>
+          
+            <button type="submit">Submit</button>
+          </form>
+
     <!-- Library container -->
-    <div id="libraryDisplay"></div>
+        <div id="libraryDisplay"></div>
+    </div>
 
     
 </body>

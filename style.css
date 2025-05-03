@@ -22,3 +22,20 @@ h1 {
 padding: 30px;
 }
 
+.envelope {
+    display: grid;
+    grid-template-columns: 1fr 5fr; 
+    grid-template-rows: auto;
+}
+
+.displayFormBtn {
+    width: 100px;
+    height: 50px;
+}
+
+.sidebar {
+    display: grid ;
+   justify-content: center ;
+   padding: 10px;
+}
+

@@ -1,18 +1,18 @@
 // JAVASCRIPT CODE 
 
 
-// Book Array
+// Book Array, empty; for storing book instances. 
 const myLibrary = [];
 
-// Book constructor
+// Book constructor;  tenplate for creating each book. 
 function Book(title, author, pages, readingStatus) {
-    this.id = crypto.randomUUID(); // Unique ID
+    this.id = crypto.randomUUID(); // Unique ID, randomly generated. 
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.readingStatus = readingStatus; // can be true, false, or 'reading'
   
-    // function to determine if book if already read, not read yet, or currently reading. 
+    // function to determine if book if already read, not read yet, or currently read. 
     this.info = function() {
       let statusMessage;
   
@@ -33,13 +33,13 @@ function Book(title, author, pages, readingStatus) {
 
 
 //   To create a new book instance and store in the empty array above; myLibrary
-// addBookToLibrary function
+// We create a new function
 function addBookToLibrary(title, author, pages, readingStatus) { // addBookToLibrary function with params same as the BOok constructor
   const newBook = new Book(title, author, pages, readingStatus); // new object newBook made from the Book constructor.
   myLibrary.push(newBook);//Book instance created is then stored in the myLibrary arrary. 
 }
 
-// Book instances
+// Book instances, which will be stored in myLibrary. 
 addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 295, "reading")
 addBookToLibrary("Atomic Habits", "James Clear",306,true); 
 addBookToLibrary("Purple Hibiscus", "Chimamanda Adichie", 345, true); 
@@ -49,7 +49,6 @@ addBookToLibrary("Power Seed", "George & Manuella Izunwa", 47, "reading");
 
 // TO DISPLAY EACH BOOK AS A CARD
 
-// To select the libraryDisplay, and style
 function displayBooksAsCards() {
   const container = document.getElementById("libraryDisplay"); // To select the libraryDisplay ID in the HTML doc.
   container.innerHTML = ""; // Clear previous content
