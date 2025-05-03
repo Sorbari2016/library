@@ -82,10 +82,10 @@ displayBooksAsCards();
 
 
 // TO GET A FORM WHEN THE "NEW BOOK" button is clicked
-const displayFormBtn = document.querySelector(".displayFormBtn"); 
-const bookForm = document.getElementById("bookForm"); 
+const displayFormBtn = document.querySelector(".displayFormBtn"); // Select the HTML displayFormBtn. 
+const bookForm = document.getElementById("bookForm"); // Select the form.
 
 // Add event listener to the New Book button
 displayFormBtn.addEventListener("click", () => {
-  bookForm.style.display = bookForm.style.display === "none" ? "block" : "none";
+  bookForm.style.display = bookForm.style.display === "none" ? "grid" : "none";
 });
