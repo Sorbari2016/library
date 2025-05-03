@@ -89,3 +89,34 @@ const bookForm = document.getElementById("bookForm"); // Select the form.
 displayFormBtn.addEventListener("click", () => {
   bookForm.style.display = bookForm.style.display === "none" ? "grid" : "none";
 });
+
+
+// Add event listener to the Submit button
+bookForm.addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevent page reload
+
+  // Get form values
+  const title = document.getElementById("title").value.trim();
+  const author = document.getElementById("author").value.trim();
+  const pages = parseInt(document.getElementById("pages").value);
+  const readingStatusRaw = document.getElementById("readingStatus").value;
+
+  // Convert string to correct type
+  const readingStatus =
+    readingStatusRaw === "true"
+      ? true
+      : readingStatusRaw === "false"
+      ? false
+      : "reading";
+
+  // Create a new Book and add to library
+  const newBook = new Book(title, author, pages, readingStatus);
+  myLibrary.push(newBook);
+
+  // Optional: reset form and hide it again
+  bookForm.reset();
+  bookForm.style.display = "none";
+
+  // Optional: update display
+  displayBooksAsCards(); // <-- only if you already have this function
+});
