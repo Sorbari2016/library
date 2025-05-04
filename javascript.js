@@ -71,6 +71,7 @@ function displayBooksAsCards() {
       <p><strong>Author:</strong> ${book.author}</p>
       <p><strong>Pages:</strong> ${book.pages}</p>
       <p><strong>Status:</strong> ${statusMessage}</p>
+      <p><button class = "removeBtn">Remove Book</button></p>
     `;
 
     container.appendChild(card); // Make the div(card) a child of the container

@@ -72,4 +72,10 @@ select {
     height: 30px;
 }
 
+.removeBtn {
+    font-weight: bold;
+    width: 120px;
+    height: 30px;
+    border-radius: 8px;
+}
 
