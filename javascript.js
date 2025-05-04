@@ -77,6 +77,7 @@ function displayBooksAsCards() {
   });
 }
 
+
 // To get the books displayed, we call
 displayBooksAsCards();
 
@@ -93,23 +94,25 @@ displayFormBtn.addEventListener("click", () => {
 
 // Add event listener to the Submit button
 bookForm.addEventListener("submit", function (e) {
-  e.preventDefault(); // Prevent page reload
+  e.preventDefault(); // Prevent the information from submitting to a server, & reload page. 
 
   // Get form values
-  const title = document.getElementById("title").value.trim();
-  const author = document.getElementById("author").value.trim();
-  const pages = parseInt(document.getElementById("pages").value);
-  const readingStatusRaw = document.getElementById("readingStatus").value;
+  const title = document.getElementById("title").value.trim(); // Select the input element with Id "title", collects the value provided in that input, & trim it. 
+  const author = document.getElementById("author").value.trim(); // Same as above.
+  const pages = parseInt(document.getElementById("pages").value); // Same as above. 
+  const readingStatusRaw = document.getElementById("readingStatus").value; // Select the select element with the id "readingStatus", and collects the option selected. 
 
   // Convert string to correct type
-  const readingStatus =
-    readingStatusRaw === "true"
-      ? true
-      : readingStatusRaw === "false"
-      ? false
-      : "reading";
+  let readingStatus;
+if (readingStatusRaw === "true") {
+  readingStatus = true;
+} else if (readingStatusRaw === "false") {
+  readingStatus = false;
+} else {
+  readingStatus = "reading";
+}
 
-  // Create a new Book and add to library
+  // Create a new Book and add to library from the information provided in the form. 
   const newBook = new Book(title, author, pages, readingStatus);
   myLibrary.push(newBook);
 
