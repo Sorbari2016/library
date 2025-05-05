@@ -31,7 +31,6 @@ function Book(title, author, pages, readingStatus) {
   }
 
 
-
 //   To create a new book instance and store in the empty array above; myLibrary
 // We create a new function
 function addBookToLibrary(title, author, pages, readingStatus) { // addBookToLibrary function with params same as the BOok constructor
@@ -49,6 +48,7 @@ addBookToLibrary("Power Seed", "George & Manuella Izunwa", 47, "reading");
 
 // TO DISPLAY EACH BOOK AS A CARD
 
+// Create function
 function displayBooksAsCards() {
   const container = document.getElementById("libraryDisplay"); // To select the libraryDisplay ID in the HTML doc.
   container.innerHTML = ""; // Clear previous content
@@ -92,7 +92,48 @@ function displayBooksAsCards() {
     const changeReadStatus = document.createElement("button");
     changeReadStatus.textContent = "Δ Read status"; 
     changeReadStatus.classList.add("changeReadStatus"); 
+  
+    // Add Event listener to the Change Read Status button
+    changeReadStatus.addEventListener("click", () => {
+      // Create select dropdown
+    const select = document.createElement("select");
     
+    const options = [
+      { label: "Already read", value: true },
+      { label: "Not read yet", value: false },
+      { label: "Currently reading", value: "reading" }
+    ];
+
+    options.forEach(opt => {
+      const option = document.createElement("option");
+      option.textContent = opt.label;
+      option.value = opt.value;
+      // Mark current status as selected
+      if (String(book.readingStatus) === String(opt.value)) {
+        option.selected = true;
+      }
+      select.appendChild(option);
+    });
+
+    // Replace the button with the dropdown temporarily
+    changeReadStatus.replaceWith(select);
+
+  // Listen for user selection
+    select.addEventListener("change", () => {
+      const newStatusValue = select.value;
+      let parsedValue;
+
+      if (newStatusValue === "true") {
+        parsedValue = true;
+      } else if (newStatusValue === "false") {
+        parsedValue = false;
+      } else {
+        parsedValue = "reading";
+      }
+      book.setReadingStatus(parsedValue);
+      displayBooksAsCards(); // Refresh UI
+    });
+  });
 
 
     cardButtonContainer.append(removeBtn, changeReadStatus); // Make removeBtn & ChangeReadStatus children of the cardButtonContainer.
@@ -100,6 +141,14 @@ function displayBooksAsCards() {
     container.appendChild(card); // Make card the child of container
   });
 }
+
+// Added a new method to the prototype of book (Book.prototype)
+Book.prototype.setReadingStatus = function (newStatus) {
+  const validStatuses = [true, false, "reading"];
+  if (validStatuses.includes(newStatus) && this.readingStatus !== newStatus) {
+    this.readingStatus = newStatus;
+  }
+};
 
 
 // To get the books displayed, we call
