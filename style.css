@@ -97,6 +97,7 @@ select {
     border: 0;
 }
 
+/* Hovering rules for the Remove Button */
 .removeBtn:hover {
     background-color: red;
     border: 0;

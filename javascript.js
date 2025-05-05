@@ -72,20 +72,31 @@ function displayBooksAsCards() {
       <p><strong>Pages:</strong> ${book.pages}</p>
       <p><strong>Status:</strong> ${statusMessage}</p>
     `;
-
+  
+    // Create a container for the card buttons
+    const cardButtonContainer = document.createElement("div"); // Create the div
+    cardButtonContainer.classList.add("cardButtonContainer");  // Add the class
+    
     //  Create Remove button
     const removeBtn = document.createElement("button");
     removeBtn.textContent = "Remove Book";
     removeBtn.classList.add("removeBtn"); // Make removeBtn a class. 
 
-  // Add Event listener to the removeBtn 
+    // Add Event listener to the removeBtn 
     removeBtn.addEventListener("click", () => {
       myLibrary.splice(index, 1); // Remove the book by its index
       displayBooksAsCards(); // Re-render the book cards, after the removal. 
     });
 
+    // Create Change Read Status
+    const changeReadStatus = document.createElement("button");
+    changeReadStatus.textContent = "Δ Read status"; 
+    changeReadStatus.classList.add("changeReadStatus"); 
+    
 
-    card.appendChild(removeBtn); // Make removeBtn the child of card.
+
+    cardButtonContainer.append(removeBtn, changeReadStatus); // Make removeBtn & ChangeReadStatus children of the cardButtonContainer.
+    card.appendChild(cardButtonContainer); // Make cardButtonContainer child of card.
     container.appendChild(card); // Make card the child of container
   });
 }
