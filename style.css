@@ -1,53 +1,63 @@
 /* STYLES FOR THE LIBRARY */
 
 
+/* General Reset for paddings and margin for all element */
 * {
     padding: 0;
     margin: 0 ;
 }
 
 
+/* Rule for the app background color & font color */
 body {
     background-color: black;
     color: white;
 }
 
+/* Rule for the App Header */
 h1 {
     text-align: center;
     padding-top: 10px;
     border-bottom: 1px solid white;
 }
 
+/* Padding rule for the library display container */
 #libraryDisplay {
 padding: 30px;
 }
 
+/* Rule for the container that houses the sidebar & libraryDisplay */
 .envelope {
     display: grid;
     grid-template-columns: minmax(150px, 1fr) minmax(600px, 4fr); 
     grid-template-rows: auto;
 }
 
+/* Rules for the New Book, & Submit button*/
 .displayFormBtn,
 button[type="submit"] {
     width: 100px;
     height: 50px;
     font-weight: bold;
     justify-self: center;
+    cursor: pointer;
 }
 
+/* Rules for the sidebar, Grid.  */
 .sidebar {
     display: grid ;
    justify-content: center ;
    padding: 10px;
 }
 
+/* Rules for the form. */
 #bookForm {
     display: grid;
     grid-template-rows: repeat (4, 1fr);
     row-gap: 20px;
 }
 
+/* Curved border for the New Book, Submit buttons, input & Select form controls. */
 .displayFormBtn, 
 button[type="submit"],
 input, 
@@ -55,15 +65,18 @@ select {
     border-radius: 8px;
 }
 
+/* Rules for the input placeholder */
 input::placeholder {
     text-align: center;
 }
 
+/* Padding & font color of the input text */
 input {
     padding-left: 3px;
     color: white;
 }
 
+/* Rules for the input & Select form control */
 input, 
 select {
     border:  1px solid white ;
@@ -72,10 +85,20 @@ select {
     height: 30px;
 }
 
+/* Rules for the Remove Button */
 .removeBtn {
     font-weight: bold;
     width: 120px;
     height: 30px;
     border-radius: 8px;
+    cursor: pointer;
+    background-color: lightpink; 
+    color: grey;
+    border: 0;
 }
 
+.removeBtn:hover {
+    background-color: red;
+    border: 0;
+    color: white;
+}

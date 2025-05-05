@@ -1,10 +1,10 @@
-// JAVASCRIPT CODE 
+// JAVASCRIPT CODE  
 
 
 // Book Array, empty; for storing book instances. 
 const myLibrary = [];
 
-// Book constructor;  tenplate for creating each book. 
+// Book constructor;  template for creating each book. 
 function Book(title, author, pages, readingStatus) {
     this.id = crypto.randomUUID(); // Unique ID, randomly generated. 
     this.title = title;
@@ -56,8 +56,8 @@ function displayBooksAsCards() {
   container.style.flexWrap = "wrap";
   container.style.gap = "2rem";
 
-// To loop through each book stored in the myLibrary array
-  myLibrary.forEach(book => {  // loop through each book object
+  // To loop through each book stored in the myLibrary array
+  myLibrary.forEach((book, index) => {  // loop through each book object with index
     const card = document.createElement("div"); //Create a div container
     card.style.border = "1px solid #ccc"; 
     card.style.borderRadius = "8px";
@@ -71,10 +71,22 @@ function displayBooksAsCards() {
       <p><strong>Author:</strong> ${book.author}</p>
       <p><strong>Pages:</strong> ${book.pages}</p>
       <p><strong>Status:</strong> ${statusMessage}</p>
-      <p><button class = "removeBtn">Remove Book</button></p>
     `;
 
-    container.appendChild(card); // Make the div(card) a child of the container
+    //  Create Remove button
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove Book";
+    removeBtn.classList.add("removeBtn"); // Make removeBtn a class. 
+
+  // Add Event listener to the removeBtn 
+    removeBtn.addEventListener("click", () => {
+      myLibrary.splice(index, 1); // Remove the book by its index
+      displayBooksAsCards(); // Re-render the book cards, after the removal. 
+    });
+
+
+    card.appendChild(removeBtn); // Make removeBtn the child of card.
+    container.appendChild(card); // Make card the child of container
   });
 }
 
@@ -105,13 +117,13 @@ bookForm.addEventListener("submit", function (e) {
 
   // Convert string to correct type
   let readingStatus;
-if (readingStatusRaw === "true") {
-  readingStatus = true;
-} else if (readingStatusRaw === "false") {
-  readingStatus = false;
-} else {
-  readingStatus = "reading";
-}
+  if (readingStatusRaw === "true") {
+    readingStatus = true;
+  } else if (readingStatusRaw === "false") {
+    readingStatus = false;
+  } else {
+    readingStatus = "reading";
+  }
 
   // Create a new Book and add to library from the information provided in the form. 
   const newBook = new Book(title, author, pages, readingStatus);
