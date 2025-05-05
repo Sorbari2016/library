@@ -88,7 +88,7 @@ select {
 /* Rules for container that houses the card buttons*/
 .cardButtonContainer {
     display: flex;
-    gap: 5px;
+    gap: 10px;
     width: 100%;
 }
 
@@ -124,6 +124,21 @@ select {
     border: 0;
     color: white;
 }
+
+/* Hovering effect for the Change Read Status */
+.changeReadStatus:hover {
+    background-color: navy; 
+    color: white;
+    border: 0;
+}
+
+/* Hovering effect for Submit button */
+button[type="submit"]:hover{
+    background-color: lightgreen;
+    border: 0;
+}
+
+
 
 
 
