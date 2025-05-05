@@ -85,17 +85,38 @@ select {
     height: 30px;
 }
 
-/* Rules for the Remove Button */
-.removeBtn {
+/* Rules for container that houses the card buttons*/
+.cardButtonContainer {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+
+
+/* Rules for the Remove Button, & Change Read Status */
+.removeBtn,
+.changeReadStatus {
     font-weight: bold;
-    width: 120px;
+    width: 100px;
     height: 30px;
     border-radius: 8px;
     cursor: pointer;
-    background-color: lightpink; 
-    color: grey;
     border: 0;
 }
+
+/* Rule for just the Remove Book button */
+.removeBtn {
+    background-color: lightpink; 
+    color: grey;
+}
+
+/* Rules for just the Change Read Status button */
+.changeReadStatus{
+    background-color: lightblue;
+    color: grey;
+}
+
+
 
 /* Hovering rules for the Remove Button */
 .removeBtn:hover {
@@ -103,3 +124,6 @@ select {
     border: 0;
     color: white;
 }
+
+
+
