@@ -14,7 +14,7 @@ function Book(title, author, pages, readingStatus) {
   
     // function to determine if book if already read, not read yet, or currently read. 
     this.info = function() {
-      let statusMessage;
+      let statusMessage; // variable not assigend, and can be reassigned. 
   
       if (this.readingStatus === true) {
         statusMessage = "already read";
@@ -56,7 +56,7 @@ function displayBooksAsCards() {
   container.style.flexWrap = "wrap";
   container.style.gap = "2rem";
 
-  // To loop through each book stored in the myLibrary array
+  // To loop through each book stored in the myLibrary array, & their index. 
   myLibrary.forEach((book, index) => {  // loop through each book object with index
     const card = document.createElement("div"); //Create a div container
     card.style.border = "1px solid #ccc"; 
@@ -104,21 +104,22 @@ function displayBooksAsCards() {
       { label: "Currently reading", value: "reading" }
     ];
 
+    // Loop through the options
     options.forEach(opt => {
-      const option = document.createElement("option");
-      option.textContent = opt.label;
+      const option = document.createElement("option"); // Create an option element.
+      option.textContent = opt.label; // The option texts should be the labels in the options variable.
       option.value = opt.value;
       // Mark current status as selected
       if (String(book.readingStatus) === String(opt.value)) {
         option.selected = true;
       }
-      select.appendChild(option);
+      select.appendChild(option); // Attach option to the select element. 
     });
 
     // Replace the button with the dropdown temporarily
-    changeReadStatus.replaceWith(select);
+    changeReadStatus.replaceWith(select); // Replace the DOM element changeReadStatus with select. 
 
-  // Listen for user selection
+  // Add event listener to the select element
     select.addEventListener("change", () => {
       const newStatusValue = select.value;
       let parsedValue;
@@ -157,7 +158,7 @@ displayBooksAsCards();
 
 // TO GET A FORM WHEN THE "NEW BOOK" button is clicked
 const displayFormBtn = document.querySelector(".displayFormBtn"); // Select the HTML displayFormBtn. 
-const bookForm = document.getElementById("bookForm"); // Select the form.
+const bookForm = document.getElementById("bookForm"); // Select the form element. 
 
 // Add event listener to the New Book button
 displayFormBtn.addEventListener("click", () => {
