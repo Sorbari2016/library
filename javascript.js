@@ -59,6 +59,7 @@ function displayBooksAsCards() {
   // To loop through each book stored in the myLibrary array, & their index. 
   myLibrary.forEach((book, index) => {  // loop through each book object with index
     const card = document.createElement("div"); //Create a div container
+    card.classList.add("card"); // Make card a class.
     card.style.border = "1px solid #ccc"; 
     card.style.borderRadius = "8px";
     card.style.padding = "1rem";

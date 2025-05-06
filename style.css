@@ -41,6 +41,10 @@ button[type="submit"] {
     font-weight: bold;
     justify-self: center;
     cursor: pointer;
+    background: linear-gradient(to right, black, grey);
+    color: white;
+    border: 1px solid white;
+
 }
 
 /* Rules for the sidebar, Grid.  */
@@ -90,6 +94,7 @@ select {
     display: flex;
     gap: 10px;
     width: 100%;
+    margin-top: 5px;
 }
 
 
@@ -134,8 +139,14 @@ select {
 
 /* Hovering effect for Submit button */
 button[type="submit"]:hover{
-    background-color: lightgreen;
+    background: linear-gradient(to right, #a8e6a1, #4caf50, #2e7d32);
+
     border: 0;
+}
+
+.card { 
+    background: linear-gradient(to right, black, grey);
+
 }
 
 
