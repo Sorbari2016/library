@@ -4,31 +4,34 @@
 // Book Array, empty; for storing book instances. 
 const myLibrary = [];
 
-// Book constructor;  template for creating each book. 
-function Book(title, author, pages, readingStatus) {
-    this.id = crypto.randomUUID(); // Unique ID, randomly generated. 
+// Changed the book constructor to class; still template for creating each book. 
+class Book {
+  constructor(title, author, pages, readingStatus) {
+    this.id = crypto.randomUUID(); // Unique ID
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.readingStatus = readingStatus; // can be true, false, or 'reading'
-  
-    // function to determine if book if already read, not read yet, or currently read. 
-    this.info = function() {
-      let statusMessage; // variable not assigend, and can be reassigned. 
-  
-      if (this.readingStatus === true) {
-        statusMessage = "already read";
-      } else if (this.readingStatus === false) {
-        statusMessage = "not read yet";
-      } else if (this.readingStatus === "reading") {
-        statusMessage = "currently reading";
-      } else {
-        statusMessage = "status unknown";
-      }
-  
-      return `${this.title} by ${this.author}, ${this.pages} pages, ${statusMessage}`;
-    };
+    this.readingStatus = readingStatus;
   }
+
+  // Method, defined outside the constructor
+  info() {
+    let statusMessage;
+
+    if (this.readingStatus === true) {
+      statusMessage = "already read";
+    } else if (this.readingStatus === false) {
+      statusMessage = "not read yet";
+    } else if (this.readingStatus === "reading") {
+      statusMessage = "currently reading";
+    } else {
+      statusMessage = "status unknown";
+    }
+
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${statusMessage}`;
+  }
+}
+
 
 
 //   To create a new book instance and store in the empty array above; myLibrary
