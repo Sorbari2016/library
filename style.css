@@ -1,155 +1,198 @@
 /* STYLES FOR THE LIBRARY */
 
-
 /* General Reset for paddings and margin for all element */
 * {
-    padding: 0;
-    margin: 0 ;
+  padding: 0;
+  margin: 0;
 }
-
 
 /* Rule for the app background color & font color */
 body {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 /* Rule for the App Header */
 h1 {
-    text-align: center;
-    padding-top: 10px;
-    border-bottom: 1px solid white;
+  text-align: center;
+  padding-top: 10px;
+  border-bottom: 1px solid white;
 }
 
 /* Padding rule for the library display container */
 #libraryDisplay {
-padding: 30px;
+  padding: 30px;
 }
 
 /* Rule for the container that houses the sidebar & libraryDisplay */
 .envelope {
-    display: grid;
-    grid-template-columns: minmax(150px, 1fr) minmax(600px, 4fr); 
-    grid-template-rows: auto;
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(600px, 4fr);
+  grid-template-rows: auto;
 }
 
 /* Rules for the New Book, & Submit button*/
 .displayFormBtn,
 button[type="submit"] {
-    width: 100px;
-    height: 50px;
-    font-weight: bold;
-    justify-self: center;
-    cursor: pointer;
-    background: linear-gradient(to right, black, grey);
-    color: white;
-    border: 1px solid white;
-
+  width: 100px;
+  height: 50px;
+  font-weight: bold;
+  justify-self: center;
+  cursor: pointer;
+  background: linear-gradient(to right, black, grey);
+  color: white;
+  border: 1px solid white;
 }
 
 /* Rules for the sidebar, Grid.  */
 .sidebar {
-    display: grid ;
-   justify-content: center ;
-   padding: 10px;
+  display: grid;
+  justify-content: center;
+  padding: 10px;
 }
 
 /* Rules for the form. */
 #bookForm {
-    display: grid;
-    grid-template-rows: repeat (4, 1fr);
-    row-gap: 20px;
+  display: grid;
+  grid-template-rows: repeat (4, 1fr);
+  row-gap: 20px;
+  margin-top: 15px;
 }
 
 /* Curved border for the New Book, Submit buttons, input & Select form controls. */
-.displayFormBtn, 
+.displayFormBtn,
 button[type="submit"],
-input, 
+input,
 select {
-    border-radius: 8px;
+  border-radius: 8px;
 }
 
 /* Rules for the input placeholder */
 input::placeholder {
-    text-align: center;
+  text-align: center;
 }
 
 /* Padding & font color of the input text */
 input {
-    padding-left: 3px;
-    color: white;
+  padding-left: 3px;
+  color: white;
 }
 
 /* Rules for the input & Select form control */
-input, 
+input,
 select {
-    border:  1px solid white ;
-    background-color: black;
-    color: white;
-    height: 30px;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+  height: 30px;
+}
+
+input[type="number"] {
+  width: 100%;
 }
 
 /* Rules for container that houses the card buttons*/
 .cardButtonContainer {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    margin-top: 5px;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  margin-top: 5px;
 }
-
 
 /* Rules for the Remove Button, & Change Read Status */
 .removeBtn,
 .changeReadStatus {
-    font-weight: bold;
-    width: 100px;
-    height: 30px;
-    border-radius: 8px;
-    cursor: pointer;
-    border: 0;
+  font-weight: bold;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0;
 }
 
 /* Rule for just the Remove Book button */
 .removeBtn {
-    background-color: lightpink; 
-    color: grey;
+  background-color: lightpink;
+  color: grey;
 }
 
 /* Rules for just the Change Read Status button */
-.changeReadStatus{
-    background-color: lightblue;
-    color: grey;
+.changeReadStatus {
+  background-color: lightblue;
+  color: grey;
 }
-
-
 
 /* Hovering rules for the Remove Button */
 .removeBtn:hover {
-    background-color: red;
-    border: 0;
-    color: white;
+  background-color: red;
+  border: 0;
+  color: white;
 }
 
 /* Hovering effect for the Change Read Status */
 .changeReadStatus:hover {
-    background-color: navy; 
-    color: white;
-    border: 0;
+  background-color: navy;
+  color: white;
+  border: 0;
 }
 
 /* Hovering effect for Submit button */
-button[type="submit"]:hover{
-    background: linear-gradient(to right, #a8e6a1, #4caf50, #2e7d32);
+button[type="submit"]:hover {
+  background: linear-gradient(to right, #a8e6a1, #4caf50, #2e7d32);
 
-    border: 0;
+  border: 0;
 }
 
-.card { 
-    background: linear-gradient(to right, black, grey);
-
+.card {
+  background: linear-gradient(to right, black, grey);
 }
 
+@media (max-width: 600px) {
+  .envelope {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
+  #libraryDisplay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
+/* VALIDATION RULES */
+.error {
+  color: lightpink;
+}
 
+input:focus {
+  outline: none;
+  border: 2px solid white;
+}
 
+.valid-sign {
+  color: green;
+}
+
+input:user-valid,
+select:user-valid {
+  border: 2px solid green;
+  outline: green;
+}
+
+input:user-invalid,
+select:user-invalid {
+  border: 2px solid lightpink;
+  outline: lightpink;
+}
+
+.form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+small {
+  padding-top: 5px;
+}
